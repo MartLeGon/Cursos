@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login / Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos base -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .form-box {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 60px auto;
+        }
+
+        .form-box h2 {
+            margin-bottom: 25px;
+            color: #741d51;
+        }
+
+        .form-box input {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .form-box button {
+            background-color: #741d51;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            color: white;
+            font-size: 1.6rem;
+            border-radius: 8px;
+        }
+
+        .form-box .link {
+            display: block;
+            margin-top: 15px;
+            color: #0077cc;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .form-box .link:hover {
+            text-decoration: underline;
+        }
+
+        body {
+            background-color: #f5f3f3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-box" id="login-form">
+        <h2>Iniciar Sesión</h2>
+        <form action="login.php" method="POST">
+            <input class="u-full-width" type="text" name="usuario" placeholder="Usuario" required>
+            <input class="u-full-width" type="password" name="contrasena" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <span class="link" onclick="mostrarRegistro()">¿No tienes cuenta? Regístrate</span>
+    </div>
+
+    <div class="form-box" id="registro-form" style="display: none;">
+        <h2>Crear Cuenta</h2>
+        <form action="registro.php" method="POST">
+            <input class="u-full-width" type="text" name="usuario" placeholder="Usuario" required>
+            <input class="u-full-width" type="password" name="contrasena" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
+        <span class="link" onclick="mostrarLogin()">¿Ya tienes cuenta? Inicia sesión</span>
+    </div>
+
+    <script>
+        function mostrarRegistro() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('registro-form').style.display = 'block';
+        }
+
+        function mostrarLogin() {
+            document.getElementById('registro-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
